@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+# Change directory to the script's parent folder
+cd "$(dirname "$0")"
+
+# Start installing the IDE extension
+gt_extension_installer install https://github.com/GraderThan/web-preview-ide-extension/releases/download/v1.0.8/web-preview-1.0.8.vsix &
+
+# Start installing the python requirements
+pip install -r requirements.txt --no-cache-dir
+
+# Wait for installations to complete
+wait
+
+# Enable HF Transfer for faster download
+export HF_HUB_ENABLE_HF_TRANSFER=1
+
+# Disable telemetry to maintain user privacy
+export HF_HUB_DISABLE_TELEMETRY=1
+
+# Download model
+huggingface-cli download facebook/blenderbot-400M-distill --max-workers=7
+
+echo "====> Install Complete <====="
