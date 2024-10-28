@@ -26,11 +26,7 @@ def get_response():
 
     user_input = request.json.get('message', None)
 
-    inputs = tokenizer([user_input], return_tensors="pt")
-
-    # Generate BlenderBot's response
-    reply_ids = model.generate(**inputs)
-    response = tokenizer.decode(reply_ids[0], skip_special_tokens=True)
+    response = "" # add your code here
 
     return jsonify({'response': response})
 
