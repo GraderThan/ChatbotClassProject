@@ -159,6 +159,5 @@ In this section, we will interact with the language model locally, then complete
 
 1. Copy the URL of your current browser tab.
 2. Open a new browser tab and paste the copied URL.
-3. Replace `ide` at the beginning of the URL with `5000`, and delete
-   `?folder=/home/developer/Documents/code` at the end of the URL.
+3. Replace `ide` at the beginning of the URL with `5000`.
 4. Press **Enter**.

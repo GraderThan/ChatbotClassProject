@@ -13,7 +13,7 @@ model = BlenderbotForConditionalGeneration.from_pretrained(model_name)
 # Serve the HTML file directly from the static folder
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder, 'index.html')  # type: ignore
 
 
 @app.route('/<path:path>')
@@ -24,9 +24,9 @@ def static_file(path):
 @app.route('/api/get_response', methods=['POST'])
 def get_response():
 
-    user_input = request.json.get('message', None)
+    user_input = request.json.get('message')  # type: ignore
 
-    response = "" # add your code here
+    response = ""  # add your code here
 
     return jsonify({'response': response})
 

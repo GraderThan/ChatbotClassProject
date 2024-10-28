@@ -22,4 +22,4 @@ while True:
     response = tokenizer.decode(reply_ids[0], skip_special_tokens=True)
 
     # Print the response
-    print(f"Bot:{response.split()}")
+    print(f"Bot: {response.strip()}")
